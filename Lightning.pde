@@ -1,16 +1,25 @@
+int x = 0;
+int y = 300;
+
 void setup() {
   size(500, 800);
   background(0);
-  fill(100);
-  quad(10, 300, 20, 300, 30, 300, 15, 300); 
-  fill(255, 255, 255, 100);
-  noStroke();
-  ellipse(250, 250, 300, 300);
-  fill(175, 249, 255, 100);
-  ellipse(250, 250, 300, 300);
+  noFill();
+  stroke(255, 211, 246);
+  strokeWeight(10);
+  //bezier(100, 300, 150, 200, 400, 350, 100, 500);
+  bezier(250, 300, 300, 200, 550, 350, 250, 500);
+  bezier(250, 300, 200, 200, -50, 350, 250, 500);
   
 }
 
 void draw() {
-  
+  int endx = x + (int)(Math.random() * 10) + 10;
+  int endy = y + (int)(Math.random() * 10) +10;
+  if (!(endy > 200 && endy < 500)) 
+    endy = -endy;
+   line(x, y, endx, endy);
+   x = endx;
+   y = endy;
 }
+  
